@@ -78,7 +78,7 @@ function clicked(e)
 <body>
 <h2>Order Queue</h2>
 <br>
-<button type="button" onclick="alert('Hello World!')">Click Me!</button>
+
 
 <form action="yourpage.asp" method="post">
 <table border="0">
