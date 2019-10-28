@@ -2,16 +2,20 @@
 <html lang="en">
 
 <head>
-  <title>Bootstrap Example</title>
+  <title>Menu</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="bootstrap-multiselect.css">
   <script src="bootstrap-multiselect.js"></script>
 
 </head>
+<body style="
+background-image: url('images/menu5.jpg');
+;background-size: cover;background-repeat: no-repeat;">
 
 <style>
   .fright {
@@ -53,13 +57,14 @@
     <div class="row">
       <button type="button" id="restaruntmenu" class="btn btn-success fright">Menu</button>
     </div>
+	
 
     <!--start items code -->
     <div class="row nodisp" id="itemsContainer">
       <h1>Please select Items for order</h1>
       <div class="row">
         <select id="orderitemsId" multiple="multiple">
-        </select>
+        </select>ac
       </div>
       <div class="row">
         <button type="button" id="gotocart" class="btn btn-success ">Submit</button>
@@ -103,28 +108,33 @@
       {
         id: '2',
         text: 'wrappers',
-        price: '33'
+        price: '7'
       },
       {
         id: '3',
         text: 'fries',
-        price: '45'
+        price: '4'
       },
       {
         id: '4',
         text: 'veg burger',
-        price: '22'
+        price: '7'
       },
       {
         id: '5',
-        text: 'cakes',
+        text: 'Pan cakes',
         price: '9'
       },
       {
         id: '6',
         text: 'Pizza',
-        price: '20'
-      }
+        price: '10'
+      },
+	  {
+	  id: '7',
+	  text: 'Chicken Pasta',
+	  price: '10'
+	  }
     ]
 
     createMenuOptions()
