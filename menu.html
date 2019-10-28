@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Menu</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="bootstrap-multiselect.css">
+  <script src="bootstrap-multiselect.js"></script>
+
+</head>
+<body style="
+background-image: url('images/menu5.jpg');
+;background-size: cover;background-repeat: no-repeat;">
+
+<style>
+  .fright {
+    float: right;
+  }
+
+  .nodisp {
+    display: none;
+  }
+
+  #gotocart {
+    margin-top: 30px;
+  }
+
+  .delorderitem {
+    background: red;
+    width: fit-content;
+    color: white;
+  }
+
+  .m_10 {
+    margin: 10px;
+  }
+</style>
+
+<body>
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Restaurant</a>
+      </div>
+
+    </div>
+  </nav>
+
+  <div class="container" id="ordermenucontainer">
+    <!--menu button-->
+    <div class="row">
+      <button type="button" id="restaruntmenu" class="btn btn-success fright">Menu</button>
+    </div>
+	
+
+    <!--start items code -->
+    <div class="row nodisp" id="itemsContainer">
+      <h1>Please select Items for order</h1>
+      <div class="row">
+        <select id="orderitemsId" multiple="multiple">
+        </select>ac
+      </div>
+      <div class="row">
+        <button type="button" id="gotocart" class="btn btn-success ">Submit</button>
+
+      </div>
+    </div>
+
+    <!--end items code -->
+  </div>
+
+
+
+  <div class="container nodisp" id="cartcontainer">
+    <h2>Selcted orderd Items </h2>
+    <div class="row" id="dispCartOrderItems">
+    </div>
+    <div class="row">
+      <button type="button" id="confirmorder" class="btn btn-primary ">Confirm order</button>
+    </div>
+
+  </div>
+
+
+
+
+</body>
+
+</html>
+
+<script type="text/javascript">
+  var selectedOrderedMenuItems = [];
+
+  /** activate select options **/
+  $(document).ready(function () {
+
+    var restaruntmenuOptions = [{
+        id: '1',
+        text: 'Chicken burger',
+        price: '11'
+      },
+      {
+        id: '2',
+        text: 'wrappers',
+        price: '7'
+      },
+      {
+        id: '3',
+        text: 'fries',
+        price: '4'
+      },
+      {
+        id: '4',
+        text: 'veg burger',
+        price: '7'
+      },
+      {
+        id: '5',
+        text: 'Pan cakes',
+        price: '9'
+      },
+      {
+        id: '6',
+        text: 'Pizza',
+        price: '10'
+      },
+	  {
+	  id: '7',
+	  text: 'Chicken Pasta',
+	  price: '10'
+	  }
+    ]
+
+    createMenuOptions()
+
+    function createMenuOptions() {
+      for (var i = 0; i < restaruntmenuOptions.length; i++) {
+        var item = restaruntmenuOptions[i];
+        if (i == 0) {
+          $('#orderitemsId').html("<option  d-id='" + item.id + "' value='" + item.id + "'>" + item.text + " --- " +
+            item.price + " $ </option>");
+        } else {
+          $('#orderitemsId').append("<option  d-id='" + item.id + "' value='" + item.id + "'>" + item.text +
+            " --- " + item.price + " $ </option>");
+        }
+      }
+    }
+
+
+
+
+
+
+    $('#orderitemsId').multiselect({
+      onChange: function (option, checked, select) {
+        //   alert('Changed option ' + $(option).val() );
+        var selctedId = $(option).val();
+
+        if (selectedOrderedMenuItems.indexOf(selctedId) != -1) {
+          selectedOrderedMenuItems.splice(selectedOrderedMenuItems.indexOf(selctedId), 1);
+        } else {
+          selectedOrderedMenuItems.push(selctedId);
+        }
+      }
+    });
+
+
+    /**start on click of menu then only show the items to select **/
+    $("#restaruntmenu").click(function () {
+      //  $("#itemsContainer").toggle();
+
+      $("#itemsContainer").removeClass('nodisp');
+      $("#cartcontainer").addClass('nodisp');
+      debugger;
+    })
+    /** end  on click of menu then only show the items to select **/
+
+
+    /**start on click of menu then only show the items to select **/
+    $("#gotocart").click(function () {
+      debugger;
+      $("#itemsContainer").addClass('nodisp');
+      $("#cartcontainer").removeClass('nodisp');
+
+      var totalcartval = 0;
+      for (var i = 0; i < selectedOrderedMenuItems.length; i++) {
+        if (i == 0) {
+          $('#dispCartOrderItems').html("");
+        }
+        var itemindx = selectedOrderedMenuItems[i];
+        var selectedMenuitem = restaruntmenuOptions[parseInt(itemindx) - 1];
+
+        if (selectedMenuitem) {
+          var seloptionstxt =
+            '<div class="row m_10 delorderitem-'+selectedMenuitem.id+'">  <div class="col-sm-4">' + selectedMenuitem.text + '</div>' +
+            '<div class="col-sm-1">' + selectedMenuitem.price + ' $</div>' +
+            '<div class="col-sm-1 delorderitem"  r-id=' + selectedMenuitem.id +
+            '>x</div> </div>';
+
+          totalcartval += parseInt(selectedMenuitem.price);
+        }
+        $('#dispCartOrderItems').append(seloptionstxt);
+      }
+      var totaltxt = "<p id='totalcartval' d_total='" + totalcartval + "'>Total cart value : " + totalcartval +
+        " $<p>"
+      $('#dispCartOrderItems').append(totaltxt);
+
+
+    })
+    /** end  on click of menu then only show the items to select **/
+
+
+
+    //cancel item code 
+
+    $(document.body).on('click', '.delorderitem', function () {
+      debugger;
+       var remitemindx = this.getAttribute('r-id');
+       var selectedMenuitem = restaruntmenuOptions[parseInt(remitemindx) - 1];
+
+
+      var r = confirm("You want to delete this item from order");
+      if (r == true) {
+        var currtotal = $("#totalcartval").attr("d_total");
+        if (currtotal) {
+          currtotal= parseInt(currtotal)-selectedMenuitem.price;
+          $("#totalcartval").attr("d_total",currtotal);
+          $("#totalcartval").text('Total cart value : ' + currtotal + ' $');
+
+        }
+
+        $(".delorderitem-"+remitemindx).remove();
+
+      }
+    });
+
+
+    //end cancel item code 
+
+
+    $("#confirmorder").click(function () {
+      alert("order confirm successfully")
+    })
+
+
+
+
+
+  });
+</script>
+
+
+<script>
+
+
+
+
+
+
+</script>
