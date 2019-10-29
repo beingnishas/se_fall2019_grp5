@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+
+<script language="JavaScript" type="text/javascript">
+<!--
+
+
+
+function addOptn(Sel, Text, Val)
+{
+  var newOpt = new Option(Text, Val);
+  var selLength = Sel.length;
+  Sel.options[selLength] = newOpt;
+}
+
+function dltOpt(Sel, Index)
+{ 
+  var selLength = Sel.length;
+  if(selLength>0)
+  {
+    Sel.options[Index] = null;
+  }
+}
+
+function moveOptions(SelFrom, SelTo)
+{
+  
+  
+  var selectedTxt = new Array();
+  var selectedValues = new Array();
+  var selectedCount = 0;
+  var selLength = SelFrom.length;
+  
+  var i;
+  
+  //Deletes from selected queue
+  for(i=selLength-1; i>=0; i--)
+  {
+    if(SelFrom.options[i].selected)
+    {
+      selectedTxt[selectedCount] = SelFrom.options[i].text;
+      selectedValues[selectedCount] = SelFrom.options[i].value;
+      dltOpt(SelFrom, i);
+      selectedCount++;
+    }
+  }
+  
+  // Adds selected in same order
+  
+  for(i=selectedCount-1; i>=0; i--)
+  {
+    addOptn(SelTo, selectedTxt[i], selectedValues[i]);
+  }
+  
+  
+}
+<!-- Code in public domain: Keith, Jenci mredkj.com 2011 -->
+
+function clicked(e)
+{
+    if(confirm('Are you sure?')==True)
+    	{e}
+    
+}
+
+
+
+function viewOrder(id) {
+	if(document.getElementById('buttonViewOrder').value=='Hide Order'){
+	document.getElementById('buttonViewOrder').value = 'View Order';
+	document.getElementById(id).style.display = 'none';
+	}else{
+	document.getElementById('buttonViewOrder').value = 'Hide Order';
+	document.getElementById(id).style.display = 'inline';
+	}
+	}
+//-->
+</script>
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>Orders Queue</title>
+</head>
+<body>
+<h2>Order Queue</h2>
+<br>
+
+
+<form action="yourpage.asp" method="post">
+<table border="0">
+	<tr>
+		<td>
+		
+			<select name="unfulfilled" size="12" multiple="multiple">
+			<option value="1">Order 1</option>
+			<option value="2">Order 2</option>
+			<option value="3">Order 3</option>
+			<option value="4">Order 4</option>
+			
+			</select>
+			
+		</td>
+		<td align="center" valign="middle">
+			<input type="button" value="Ready for pickup --&gt;"
+			 onclick="if(confirm('Customer will be notified their order is ready for pickup. Are you sure?')) moveOptions(this.form.unfulfilled, this.form.ready);" /><br />
+			
+		</td>
+		
+		<td>
+		
+			<select name="ready" size="12" multiple="multiple">
+			<option value="5">Order 5</option>
+			
+			</select>
+		</td>
+		<td align="center" valign="middle">
+			<input type="button" value="Picked up --&gt;"
+			 onclick="moveOptions(this.form.ready, this.form.fulfilled)" /><br />
+			<input type="button" value="&lt;--"
+			 onclick="moveOptions(this.form.fulfilled, this.form.ready)" />
+		</td>
+		<td>
+		
+			<select name="fulfilled" size="12" multiple="multiple">
+			<option value="6">Order 6</option>			
+			</select>
+		</td>		
+		</tr>
+		
+		<tr>
+		<td>Unfulfilled</td>
+		<td></td>
+		<td>Ready for Pickup</td>
+		<td></td>
+		<td>Fulfilled</td>		
+		</tr>
+		
+		<tr>
+		<!--  <td align="center" valign="middle">
+			<input type="button" value="View Order" id = "buttonViewOrder" onclick = "viewOrd('myDiv')"/><br />-->
+		<td align="center" valign="middle" ><input type= "button" name=type id='buttonViewOrder' value='View Order' onclick="viewOrder('myDIV');";> 
+			
+		</td>
+		</tr>
+		
+		
+</table>
+</form>
+<div id="myDIV">Order 1: Fajita Veggie Burrito - Sautéed fajita vegetables, red & green peppers and white onions.
+<br>
+Order 2: Chicken bowl
+<br>
+Order 3: Nachos
+<br>
+Order 4: Kids meal
+<br>
+Order 5: Steak Tacos
+<br>
+Order 6: Quesadilla
+
+
+</div>
+
+
+<style type="text/css">
+#myDIV {
+
+display: none;
+}
+</style>
+
+</body>
+</html>
