@@ -28,7 +28,7 @@ public class QueueServlet extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
-				
+		email.sendIt();
 		
 		/*String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
@@ -41,8 +41,8 @@ public class QueueServlet extends HttpServlet {
 			request.setAttribute("errormessage", "Invalid Credentials");
 			request.getRequestDispatcher("/WEB-INF/queue.jsp").forward(request,response);
 		}*/
-		email.sendIt();
-		//request.getRequestDispatcher("/WEB-INF/servlet.jsp").forward(request, response);
+		
+		//request.getRequestDispatcher("/WEB-INF/servlet.jsp").forward(request, response); forwards page to servlet.jsp
 		
 	}
 }
