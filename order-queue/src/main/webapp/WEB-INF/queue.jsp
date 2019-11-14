@@ -133,8 +133,8 @@ function setVisibility(id) {
 		</td>
 		<td align="center" valign="middle">
 		 
-			<input type="button" value="Ready for pickup --&gt;"
-			 onclick="if(confirm('Are you sure?')) moveOptions(this.form.sel1, this.form.sel2);" /><br />
+			<input type="button" value="Ready for pickup --&gt;" id = "notify"
+			 onclick="if(confirm('Are you sure?')) moveOptions(this.form.sel1, this.form.sel2); doNotify();" /><br />
 		
 		</td>
 		
@@ -199,8 +199,8 @@ java.util.Date date = new java.util.Date();
 
   <!--   <form  >
  <input type ="submit" value="Notify customer" id = "notify" /> 
-   </form> -->
-<button id = "notify" onClick = "doNotify()">Notify customer</button>
+   </form> 
+<button id = "notify" onClick = "doNotify()">Notify customer</button>-->
 
 
 
