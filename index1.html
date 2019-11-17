@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<meta charset="utf-8" />
+	<meta name="viewport", content="width=device-width, initial-scale=1">
+	<title>Admin Page</title>
+</head>
+
+<body>
+
+<div class="container">
+	<div class="row">
+		<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Admin Screen</legend>
+
+<!-- Text input-->
+<div class="form-group">
+ Choose item: <input type="file" id="real-file" hidden="hidden" />
+<button type="button" id="custom-button">Browse</button>
+<span id="custom-text">No file chosen</span>
+<!-- partial -->
+  <script  src="./script.js"></script>
+<form action="/action_page.php">
+</div>
+<div class = "price">
+Price : <input type="text" name="Price"><br>
+
+</div>
+<p>Student Discount:</p>
+  <input type="radio" name="dis" value="yes">Yes<br>
+  <input type="radio" name="dis" value="no">No<br>
+  <button onclick="myFunction()">submit</button>
+</form>
+</div>
+
+ </div>
+</body>
+</html>
