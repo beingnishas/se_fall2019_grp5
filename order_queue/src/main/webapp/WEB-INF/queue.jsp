@@ -117,16 +117,14 @@ function setVisibility(id) {
 <br>
 
 
-<form action="yourpage.asp" method="post">
+<form method="post">
 <table border="0">
 	<tr>
 		<td>
 		
 			<select name="sel1" size="10" multiple="multiple">
 			<option value="1">Order 1</option>
-			<option value="2">Order 2</option>
-			<option value="3">Order 3</option>
-			<option value="4">Order 4</option>
+			
 			
 			</select>
 			
@@ -141,7 +139,7 @@ function setVisibility(id) {
 		<td>
 		
 			<select name="sel2" size="10" multiple="multiple">
-			<option value="5">Order 5</option>
+			<option value="2">Order 2</option>
 			
 			</select>
 		</td>
@@ -154,7 +152,7 @@ function setVisibility(id) {
 		<td>
 		
 			<select name="sel3" size="10" multiple="multiple">
-			<option value="6">Order 6</option>			
+			<option value="3">Order 3</option>			
 			</select>
 		</td>		
 		</tr>
@@ -195,7 +193,7 @@ java.util.Date date = new java.util.Date();
 
 <div> Current date is <%=date %></div>
 
-<p><font color="red">${errormessage}</font></p>
+
 
   <!--   <form  >
  <input type ="submit" value="Notify customer" id = "notify" /> 
