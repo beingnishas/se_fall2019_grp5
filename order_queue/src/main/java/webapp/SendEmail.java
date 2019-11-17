@@ -18,7 +18,7 @@ public class SendEmail {
 	 */
 	public static void sendIt() {
 		final String fromEmail = "onlineorderingcsc640@gmail.com"; //requires valid gmail id
-		final String password = "uncgspartans"; // correct password for gmail id
+		final String password = "xxxxx"; // correct password for gmail id
 		final String toEmail = "onlineorderingcsc640@gmail.com"; // can be any email id 
 		
 		System.out.println("TLSEmail Start");
