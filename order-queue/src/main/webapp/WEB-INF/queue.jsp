@@ -100,14 +100,6 @@ function setVisibility(id) {
 	document.getElementById(id).style.display = 'inline';
 	}
 	}
-	
-function showDiv(option){
-	   if(option.value==3){
-	    document.getElementById('showOrder').style.display = "block";
-	   } else{
-	    document.getElementById('showOrder').style.display = "none";
-	   }
-	} 
 //-->
 </script>
 
@@ -125,18 +117,16 @@ function showDiv(option){
 <br>
 
 
-<form method="post">
+<form action="yourpage.asp" method="post">
 <table border="0">
 	<tr>
 		<td>
 		
 			<select name="sel1" size="10" multiple="multiple">
-<<<<<<< Updated upstream
 			<option value="1">Order 1</option>
-=======
+			<option value="2">Order 2</option>
 			<option value="3">Order 3</option>
->>>>>>> Stashed changes
-			
+			<option value="4">Order 4</option>
 			
 			</select>
 			
@@ -151,7 +141,7 @@ function showDiv(option){
 		<td>
 		
 			<select name="sel2" size="10" multiple="multiple">
-			<option value="2">Order 2</option>
+			<option value="5">Order 5</option>
 			
 			</select>
 		</td>
@@ -164,11 +154,7 @@ function showDiv(option){
 		<td>
 		
 			<select name="sel3" size="10" multiple="multiple">
-<<<<<<< Updated upstream
-			<option value="3">Order 3</option>			
-=======
-			<option value="1">Order 1</option>			
->>>>>>> Stashed changes
+			<option value="6">Order 6</option>			
 			</select>
 		</td>		
 		</tr>
@@ -182,9 +168,9 @@ function showDiv(option){
 		</tr>
 		
 		<tr>
-		
-		<td align="center" valign="middle" ><input type= "button" name=type id='bt1' value='View Order' 
-		 onclick="showDiv('this.option');";> 
+		<!--  <td align="center" valign="middle">
+			<input type="button" value="View Order" id = "bt1" onclick = "viewOrd('myDiv')"/><br />-->
+		<td align="center" valign="middle" ><input type= "button" name=type id='bt1' value='View Order' onclick="setVisibility('myDIV');";> 
 			
 		</td>
 		</tr>
@@ -192,10 +178,15 @@ function showDiv(option){
 		
 </table>
 </form>
-<div id="showOrder" style="display:none;">Order 3:Chicken sub, fries, coke</div>
+<div id="myDIV">Order 1: Fajita Veggie Burrito - Sautéed fajita vegetables, red & green peppers and white onions.</div>
 
 
+<style type="text/css">
+#myDIV {
 
+display: none;
+}
+</style>
 
 <%;
 java.util.Date date = new java.util.Date(); 
@@ -204,8 +195,7 @@ java.util.Date date = new java.util.Date();
 
 <div> Current date is <%=date %></div>
 
-<<<<<<< Updated upstream
-
+<p><font color="red">${errormessage}</font></p>
 
   <!--   <form  >
  <input type ="submit" value="Notify customer" id = "notify" /> 
@@ -214,7 +204,5 @@ java.util.Date date = new java.util.Date();
 
 
 
-=======
->>>>>>> Stashed changes
 </body>
 </html>

@@ -1,24 +1,7 @@
 <!DOCTYPE html>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<script language="JavaScript" type="text/javascript" >
-
-
-
-<%@page contentType="text/html" pageEncoding = "UTF-8"%>
-$(document).ready(function() {
-    $('#notify').click(function (doNotify){
-        $.ajax({
-        	type: "POST",
-            url: "email.do" //this is my servlet
-            
-            }
-        );
-    });
-})
-
-
+<script language="JavaScript" type="text/javascript">
 <!--
 
 
@@ -81,33 +64,8 @@ function clicked(e)
     
 }
 
-function viewOrd(id) {
-	if(document.getElementById('bt1').value=='Hide Layer'){
-	document.getElementById('bt1').value = 'View Order';
-	document.getElementById(id).style.display = 'none';
-	}else{
-	document.getElementById('bt1').value = 'Hide Layer';
-	document.getElementById(id).style.display = 'inline';
-	}
-	}
 
-function setVisibility(id) {
-	if(document.getElementById('bt1').value=='Hide Order'){
-	document.getElementById('bt1').value = 'View Order';
-	document.getElementById(id).style.display = 'none';
-	}else{
-	document.getElementById('bt1').value = 'Hide Order';
-	document.getElementById(id).style.display = 'inline';
-	}
-	}
-	
-function showDiv(option){
-	   if(option.value==3){
-	    document.getElementById('showOrder').style.display = "block";
-	   } else{
-	    document.getElementById('showOrder').style.display = "none";
-	   }
-	} 
+
 //-->
 </script>
 
@@ -119,39 +77,34 @@ function showDiv(option){
 <title>Orders Queue</title>
 </head>
 <body>
-
-
 <h2>Order Queue</h2>
 <br>
 
 
-<form method="post">
+<form action="yourpage.asp" method="post">
 <table border="0">
 	<tr>
 		<td>
 		
 			<select name="sel1" size="10" multiple="multiple">
-<<<<<<< Updated upstream
 			<option value="1">Order 1</option>
-=======
+			<option value="2">Order 2</option>
 			<option value="3">Order 3</option>
->>>>>>> Stashed changes
-			
-			
+			<option value="4">Order 4</option>
+			<option value="5">Order 5</option>
 			</select>
 			
 		</td>
 		<td align="center" valign="middle">
-		 
-			<input type="button" value="Ready for pickup --&gt;" id = "notify"
-			 onclick="if(confirm('Are you sure?')) moveOptions(this.form.sel1, this.form.sel2); doNotify();" /><br />
-		
+			<input type="button" value="Ready for pickup --&gt;"
+			 onclick="if(confirm('Are you sure?')) moveOptions(this.form.sel1, this.form.sel2);" /><br />
+			
 		</td>
 		
 		<td>
 		
 			<select name="sel2" size="10" multiple="multiple">
-			<option value="2">Order 2</option>
+			<option value="5">Order 5</option>
 			
 			</select>
 		</td>
@@ -164,11 +117,7 @@ function showDiv(option){
 		<td>
 		
 			<select name="sel3" size="10" multiple="multiple">
-<<<<<<< Updated upstream
-			<option value="3">Order 3</option>			
-=======
-			<option value="1">Order 1</option>			
->>>>>>> Stashed changes
+			<option value="6">Order 6</option>			
 			</select>
 		</td>		
 		</tr>
@@ -182,9 +131,9 @@ function showDiv(option){
 		</tr>
 		
 		<tr>
-		
-		<td align="center" valign="middle" ><input type= "button" name=type id='bt1' value='View Order' 
-		 onclick="showDiv('this.option');";> 
+		<td align="center" valign="middle">
+			<input type="button" value="View Order" onclick = "printOrder(this.form.sel1)"
+			  /><br />
 			
 		</td>
 		</tr>
@@ -192,29 +141,20 @@ function showDiv(option){
 		
 </table>
 </form>
-<div id="showOrder" style="display:none;">Order 3:Chicken sub, fries, coke</div>
-
-
-
-
 <%;
 java.util.Date date = new java.util.Date(); 
 %>
 
-
+Hello ${name}
 <div> Current date is <%=date %></div>
 
-<<<<<<< Updated upstream
+<p><font color="red">${errormessage}</font></p>
 
-
-  <!--   <form  >
- <input type ="submit" value="Notify customer" id = "notify" /> 
-   </form> 
-<button id = "notify" onClick = "doNotify()">Notify customer</button>-->
+<form action = "/order-queue/queue.do" method ="post">
+Name <input name = "name" type= "text" />  Password: <input name = "pass" type ="password"/> <input type ="submit" value="login" /> 
+</form>
 
 
 
-=======
->>>>>>> Stashed changes
 </body>
 </html>
