@@ -81,33 +81,8 @@ function clicked(e)
     
 }
 
-function viewOrd(id) {
-	if(document.getElementById('bt1').value=='Hide Layer'){
-	document.getElementById('bt1').value = 'View Order';
-	document.getElementById(id).style.display = 'none';
-	}else{
-	document.getElementById('bt1').value = 'Hide Layer';
-	document.getElementById(id).style.display = 'inline';
-	}
-	}
 
-function setVisibility(id) {
-	if(document.getElementById('bt1').value=='Hide Order'){
-	document.getElementById('bt1').value = 'View Order';
-	document.getElementById(id).style.display = 'none';
-	}else{
-	document.getElementById('bt1').value = 'Hide Order';
-	document.getElementById(id).style.display = 'inline';
-	}
-	}
-	
-function showDiv(option){
-	   if(option.value==3){
-	    document.getElementById('showOrder').style.display = "block";
-	   } else{
-	    document.getElementById('showOrder').style.display = "none";
-	   }
-	} 
+
 //-->
 </script>
 
@@ -131,11 +106,11 @@ function showDiv(option){
 		<td>
 		
 			<select name="sel1" size="10" multiple="multiple">
-<<<<<<< Updated upstream
-			<option value="1">Order 1</option>
-=======
+
+
+
 			<option value="3">Order 3</option>
->>>>>>> Stashed changes
+
 			
 			
 			</select>
@@ -164,12 +139,12 @@ function showDiv(option){
 		<td>
 		
 			<select name="sel3" size="10" multiple="multiple">
-<<<<<<< Updated upstream
-			<option value="3">Order 3</option>			
-=======
-			<option value="1">Order 1</option>			
->>>>>>> Stashed changes
-			</select>
+
+			
+			<option value="1">Order 1</option>
+
+
+/select>
 		</td>		
 		</tr>
 		
@@ -204,7 +179,7 @@ java.util.Date date = new java.util.Date();
 
 <div> Current date is <%=date %></div>
 
-<<<<<<< Updated upstream
+
 
 
   <!--   <form  >
@@ -214,7 +189,7 @@ java.util.Date date = new java.util.Date();
 
 
 
-=======
->>>>>>> Stashed changes
+
+
 </body>
 </html>
