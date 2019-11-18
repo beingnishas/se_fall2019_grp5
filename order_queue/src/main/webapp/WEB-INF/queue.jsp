@@ -112,7 +112,7 @@ function viewOrd() {
 	<tr>
 		<td>
 		
-			<select name="sel1" size="10" multiple="multiple">
+			<select name="sel1" size="10" >
 
 
 
@@ -132,7 +132,7 @@ function viewOrd() {
 		
 		<td>
 		
-			<select name="sel2" size="10" multiple="multiple">
+			<select name="sel2" size="10" >
 			<option value="2">Order 2</option>
 			
 			</select>
@@ -145,13 +145,12 @@ function viewOrd() {
 		</td>
 		<td>
 		
-			<select name="sel3" size="10" multiple="multiple">
+			<select name="sel3" size="10" >
 
-			
 			<option value="1">Order 1</option>
 
+			</select>
 
-/select>
 		</td>		
 		</tr>
 		
