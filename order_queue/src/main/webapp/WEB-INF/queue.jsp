@@ -81,7 +81,14 @@ function clicked(e)
     
 }
 
-
+function viewOrd() {
+	   var shown = document.getElementById("ord3");
+	   if (shown.style.display == "none"){
+	   shown.style.display = "block";}
+	   else{
+		   shown.style.display = "none";
+	   }
+	}
 
 //-->
 </script>
@@ -156,36 +163,22 @@ function clicked(e)
 		<td>Fulfilled</td>		
 		</tr>
 		
-		<tr>
 		
-		<td align="center" valign="middle" ><input type= "button" name=type id='bt1' value='View Order' 
-		 onclick="showDiv('this.option');";> 
-			
-		</td>
-		</tr>
 		
 		
 </table>
 </form>
-<div id="showOrder" style="display:none;">Order 3:Chicken sub, fries, coke</div>
 
-
-
+<div id="ord3" style="display:none;">Order 3:Chicken sub, fries, coke</div>
 
 <%;
 java.util.Date date = new java.util.Date(); 
 %>
 
-
 <div> Current date is <%=date %></div>
 
-
-
-
-  <!--   <form  >
- <input type ="submit" value="Notify customer" id = "notify" /> 
-   </form> 
-<button id = "notify" onClick = "doNotify()">Notify customer</button>-->
+ 
+<button id = "ord" onClick = "viewOrd()">View Order</button>
 
 
 
